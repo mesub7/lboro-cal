@@ -25,6 +25,14 @@ periods = [period1, period2, period3, period4]
 for period in periods:
     for i in range(len(period['events'])):
         teaching = period['events'][i]
+        try:
+            teaching['teacherName']
+        except KeyError:
+            teaching['teacherName'] = None
+        try:
+            teaching['teacherEmail']
+        except KeyError:
+            teaching['teacherEmail'] = None
         event = icalendar.Event()
         event.add('uid', teaching['eventRef'])
         event.add('dtstamp', datetime.now())
@@ -33,7 +41,7 @@ for period in periods:
         event.add('summary', teaching['desc1'])
         event.add('description', f"{teaching['desc1']} with {teaching['teacherName']}." if teaching['teacherName'] else f"{teaching['desc1']}.")
         event.add('location', teaching['locAdd1'])
-        event.add('organiser', f"mailto:{teaching['teacherEmail']}")
+        event.add('organiser', f"mailto:{teaching['teacherEmail']}" if teaching['teacherEmail'] else "mailto:anonymous@lboro.ac.uk")
         cal.add_component(event)
 
 with open('test_cal.ics', 'wb') as f:
