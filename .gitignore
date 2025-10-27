@@ -182,3 +182,4 @@ cython_debug/
 
 # Other things
 test.py
+*.ics
