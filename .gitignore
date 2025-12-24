@@ -181,5 +181,6 @@ cython_debug/
 .cursorindexingignore
 
 # Other things
+cal-import-private.py
 test.py
 *.ics
