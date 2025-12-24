@@ -10,14 +10,15 @@ Others have constructed a few solutions, but these are static. This solution is 
 
 It is mostly RFC 5545 compliant. The title is your module and the type of contact. The location is the room code and the description is who you'll be having it with.
 
-At the moment, it's kind of offered as-is (I am very busy). In the future, I will try and smooth it out so it's easier for you to deploy.
+At the moment, it's kind of offered as-is (I am very busy). In the future, I will try and smooth it out so it's easier for you to deploy (work has already started on this).
 
 Dependencies are: iCalendar and requests.
 You'll need your credentials to access the service. These are currently environment variables (so only run this on a system you trust or have full control over).
 
 1) Get the file
 2) Install dependencies
-3) Run the script (This will generate an .ics file)
+3) Update the output path and add your environment variables
+4) Run the script (This will generate an .ics file)
 5) Upload this to your calendar provider of choice
 
 If you want it to be dynamic, you need to find a way to host it somewhere and update the file. A cloud storage solution may work but I've never tried it.
