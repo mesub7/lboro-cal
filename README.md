@@ -3,14 +3,14 @@
 <img width="1226" height="720" alt="image" src="https://github.com/user-attachments/assets/4bd3a66d-56b3-4c6a-abd5-9d19eb61ea25" />
 
 
-This is a little passion project made because there's no way to export your timetable to external calendars (how unfortunate).
+This is a little passion project made because there's no nice way to export your timetable to external calendars without tediously exporting each event in the myLboro app.
 
 This repo aims to solve this.
-Others have constructed a few solutions, but these are static. This solution is dynamic (if you allow it to be).
+Others have constructed a few solutions, but these are static. This solution is dynamic (if you allow it to be). Want something less techie? [Lboro Sync](https://lborosync.co.uk/) is a very similar solution (but you will have to manually sync it).
 
 It is mostly RFC 5545 compliant. The title is your module and the type of contact. The location is the room code and the description is who you'll be having it with.
 
-At the moment, it's kind of offered s-is (I am very busy). In the future, I will try and smooth it out so it's easier for you to deploy.
+At the moment, it's kind of offered as-is (I am very busy). In the future, I will try and smooth it out so it's easier for you to deploy.
 
 Dependencies are: iCalendar and requests.
 You'll need your credentials to access the service. These are currently environment variables (so only run this on a system you trust or have full control over).
@@ -28,3 +28,9 @@ A known issue for Outlook is that past events are not synced. This is a design c
 ## Bugs and development
 If there's a bug or issue then please make an issue.
 If you think you can improve this, by all means make a PR.
+
+## Changelog
+
+This was last updated on the 24th of December.
+
+24th December update: Remove device specific text + improve support for multiple staff members allocated to a lecture.
