@@ -32,7 +32,7 @@ for period in periods:
         except KeyError:
             teaching['teacherEmail'] = None
         if teaching['teacherEmail']:
-            teachers = teaching['teacherEmail'].split(';')
+            teachers = teaching['teacherEmail'].split('; ')
         else:
             teachers = "anonymous@lboro.ac.uk"
         event = icalendar.Event()
