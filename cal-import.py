@@ -34,7 +34,7 @@ for period in periods:
         if teaching['teacherEmail']:
             teachers = teaching['teacherEmail'].split('; ')
         else:
-            teachers = "anonymous@lboro.ac.uk"
+            teachers = ["anonymous@lboro.ac.uk"]
         event = icalendar.Event()
         event.add('uid', teaching['eventRef'])
         event.add('dtstamp', datetime.now())
@@ -43,8 +43,12 @@ for period in periods:
         event.add('summary', teaching['desc1'])
         event.add('description', f"{teaching['desc1']} with {teaching['teacherName']}." if teaching['teacherName'] else f"{teaching['desc1']}.")
         event.add('location', teaching['locAdd1'])
-        for teacher in teachers:
-            event.add('organizer', f"mailto:{teacher}")
+        if len(teachers) == 1:
+            event.add('organizer', f"mailto:{teachers[0]}")
+        else:
+            event.add('organizer', f"mailto:{teachers[0]}")
+            for teacher in teachers[1:]:
+                event.add('attendee', f"mailto:{teacher}")
         cal.add_component(event)
 
 tmp_path = OUTPUT_PATH + ".tmp"
