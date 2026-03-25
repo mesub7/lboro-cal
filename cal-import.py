@@ -2,6 +2,7 @@ from datetime import datetime
 import json
 import requests
 import os
+from zoneinfo import ZoneInfo
 import icalendar
 
 OUTPUT_PATH = '...'  # Fill this out
@@ -38,8 +39,8 @@ for period in periods:
         event = icalendar.Event()
         event.add('uid', teaching['eventRef'])
         event.add('dtstamp', datetime.now())
-        event.add('dtstart', datetime.fromisoformat(teaching['start']))
-        event.add('dtend', datetime.fromisoformat(teaching['end']))
+        event.add('dtstart', datetime.fromisoformat(teaching['start']).replace(tzinfo=ZoneInfo("Europe/London")))
+        event.add('dtend', datetime.fromisoformat(teaching['end']).replace(tzinfo=ZoneInfo("Europe/London")))
         event.add('summary', teaching['desc1'])
         event.add('description', f"{teaching['desc1']} with {teaching['teacherName']}." if teaching['teacherName'] else f"{teaching['desc1']}.")
         event.add('location', teaching['locAdd1'])
